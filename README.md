@@ -1,7 +1,7 @@
-# PROJECT_NAME Organization Infrastructure
+# codingones-github-templates Organization Infrastructure
 
 ## About
-This repository describe through IAC the PROJECT_NAME administrative infrastructure that span over Github, Terraform Cloud and an AWS Organizational Unit.
+This repository describe through IAC the codingones-github-templates administrative infrastructure that span over Github, Terraform Cloud and an AWS Organizational Unit.
 
 ## TOC
 
@@ -15,11 +15,11 @@ This repository describe through IAC the PROJECT_NAME administrative infrastruct
 ## Usage
 
 ### Generating the infrastructure.
-Run the ['Apply the changes to GITHUB_ORGANIZATION_NAME' workflow](https://github.com/organizations-infrastructure/GITHUB_ORGANIZATION_NAME/actions) (time <~ 3 min)
-- The infrastructure services; application and presentation repositories have been created and configured in the [GITHUB_ORGANIZATION_NAME github organization](https://github.com/ORGANIZATION).
-- the [organization admin workspace](https://app.terraform.io/app/organizations-infrastructure/workspaces/TERRAFORM_CLOUD_ORGANIZATION_NAME) is created in terraform cloud admin infrastructure.
-- the [organization](https://app.terraform.io/app/TERRAFORM_CLOUD_ORGANIZATION_NAME/workspaces) is created in terraform cloud
-- an organizational unit AWS_ORGANIZATIONAL_UNIT_NAME and a deployer IAM user have been created in AWS.
+Run the ['Apply the changes to codingones-github-templates' workflow](https://github.com/organizations-infrastructure/codingones-github-templates/actions) (time <~ 3 min)
+- The infrastructure services; application and presentation repositories have been created and configured in the [codingones-github-templates github organization](https://github.com/ORGANIZATION).
+- the [organization admin workspace](https://app.terraform.io/app/organizations-infrastructure/workspaces/codingones-github-templates) is created in terraform cloud admin infrastructure.
+- the [organization](https://app.terraform.io/app/codingones-github-templates/workspaces) is created in terraform cloud
+- an organizational unit none and a deployer IAM user have been created in AWS.
 - you have received an email inviting you to manage the AWS organizational unit on the management account email address.
 
 
@@ -231,7 +231,7 @@ Pour que les modifications de la description de l'infrastructure soient appliqu�
 #### Déploiement
 
 - [Terraform Cloud](https://app.terraform.io/) est la plateforme proposée par HashiCorp pour administrer les modifications d'infrastructure
-    - Organization : [TERRAFORM_CLOUD_ORGANIZATION_NAME](https://app.terraform.io/app/TERRAFORM_CLOUD_ORGANIZATION_NAME/workspaces)
+    - Organization : [codingones-github-templates](https://app.terraform.io/app/codingones-github-templates/workspaces)
 
 ## Licence
 
