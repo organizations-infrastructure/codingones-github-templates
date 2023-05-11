@@ -243,7 +243,7 @@ module "aws_service_registry_template" {
   files = {
     workflow-apply = {
       path            = ".github/workflows/apply.terraform.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
+      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/service/registry/apply-terraform-aws-registry-infrastructure.yml"
       template_variables = {
         SERVICE = "registry-infrastructure"
       }
