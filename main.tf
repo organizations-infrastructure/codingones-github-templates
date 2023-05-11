@@ -4,7 +4,7 @@ terraform {
     organization = "organizations-infrastructure"
 
     workspaces {
-      name = "ORGANIZATION"
+      name = "codingones-github-templates"
     }
   }
 
@@ -30,11 +30,6 @@ terraform {
 
 provider "tfe" {
   token = var.tfe_token
-}
-
-provider "aws" {
-  alias  = "root"
-  region = "us-east-1"
 }
 
 provider "github" {
