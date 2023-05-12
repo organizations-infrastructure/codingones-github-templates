@@ -25,6 +25,8 @@ module "aws_application_fastify_api" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_application_client_angular" {
@@ -59,4 +61,6 @@ module "aws_application_client_angular" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }

@@ -3,12 +3,6 @@ resource "tfe_organization" "organization" {
   email = var.organization_email
 }
 
-resource "tfe_workspace" "iam" {
-  name         = "iam"
-  organization = tfe_organization.organization.name
-  tag_names    = ["admin", "iam"]
-}
-
 data "tfe_team" "owners" {
   name         = "owners"
   organization = var.terraform_organization
@@ -28,6 +22,14 @@ resource "tfe_variable_set" "variables" {
   organization = tfe_organization.organization.name
 
   depends_on = [tfe_organization.organization]
+}
+
+resource "tfe_variable" "tfe_team_token" {
+  key             = "tfe_team_token"
+  value           = var.terraform_organization
+  category        = "terraform"
+  description     = "The organization team api token"
+  variable_set_id = tfe_variable_set.variables.id
 }
 
 resource "tfe_variable" "organization_variables" {

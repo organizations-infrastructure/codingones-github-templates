@@ -35,6 +35,8 @@ module "aws_service_vpc_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_domain_template" {
@@ -79,6 +81,8 @@ module "aws_service_domain_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_email_template" {
@@ -138,6 +142,8 @@ module "aws_service_email_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_identity_template" {
@@ -187,6 +193,8 @@ module "aws_service_identity_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_persistence_template" {
@@ -231,6 +239,8 @@ module "aws_service_persistence_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_registry_template" {
@@ -270,6 +280,8 @@ module "aws_service_registry_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_api_template" {
@@ -329,6 +341,8 @@ module "aws_service_api_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }
 
 module "aws_service_client_template" {
@@ -378,4 +392,6 @@ module "aws_service_client_template" {
   providers = {
     github = github
   }
+
+  depends_on = [module.github_organization]
 }

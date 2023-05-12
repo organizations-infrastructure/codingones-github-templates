@@ -6,7 +6,7 @@ locals {
     commit_author                = "github-actions[bot]"
     commit_email                 = "github-actions[bot]@users.noreply.github.com"
     organization_email           = "romain.cambonie@gmail.com"
-    organization_variables = {
+    terraform_organization_variables = {
       "project" = {
         hcl         = false
         sensitive   = false
@@ -19,6 +19,15 @@ locals {
         value       = "codingones-github-templates"
         description = "The organization name on terraform cloud"
       }
+    }
+    github_organization_secrets = {
+      "tfe_team_token" = {
+        github_key    = "TF_API_TOKEN"
+        terraform_key = "tfe_team_token"
+      }
+    }
+    github_organization_variables = {
+
     }
   }
 }
