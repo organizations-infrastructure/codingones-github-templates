@@ -1,9 +1,10 @@
-module "aws_application_fastify_api" {
+module "aws_application_api" {
   source = "github.com/codingones-terraform-modules/aws-ecr-node-api-template-repository-generator"
 
-  service             = "ecr"
-  github_organization = "codingones-github-templates"
-  github_repository   = "aws-application-api-fastify"
+  service                  = "ecr"
+  github_organization      = "codingones-github-templates"
+  github_repository        = "aws-application-api"
+  github_repository_topics = ["api", "node", "aws", "ecr", "docker", "template"]
 
   files = {
     workflow-apply = {
@@ -29,12 +30,13 @@ module "aws_application_fastify_api" {
   depends_on = [module.github_organization]
 }
 
-module "aws_application_client_angular" {
+module "aws_application_client" {
   source = "github.com/codingones-terraform-modules/aws-client-template-repository-generator"
 
-  service             = "s3"
-  github_organization = "codingones-github-templates"
-  github_repository   = "aws-application-client-angular"
+  service                  = "s3"
+  github_organization      = "codingones-github-templates"
+  github_repository        = "aws-application-client"
+  github_repository_topics = ["client", "aws", "s3", "template"]
 
   files = {
     workflow-deploy = {
