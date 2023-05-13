@@ -66,3 +66,20 @@ module "aws_application_client" {
 
   depends_on = [module.github_organization]
 }
+
+module "angular_client" {
+  source = "github.com/codingones-terraform-modules/github-repository"
+
+  github_organization           = "codingones-github-templates"
+  github_repository             = "angular-client"
+  github_repository_topics      = ["client", "angular", "template", "cognito"]
+  allow_push_to_default_branch  = false
+  github_repository_description = "A ready to deploy application for quick prototyping"
+  #required_context_checks       = ["validate/prettier"]
+
+  providers = {
+    github = github
+  }
+
+  depends_on = [module.github_organization]
+}
