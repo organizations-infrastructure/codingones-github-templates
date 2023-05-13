@@ -41,3 +41,36 @@ jobs:
           echo "github_token = \"${{ secrets.PAT }}\"" > terraform.auto.tfvars
           echo "tfe_token = \"${{ secrets.TF_API_TOKEN }}\"" >> terraform.auto.tfvars
           terraform apply -auto-approve -input=false
+
+  notify-discord:
+    needs:
+      - terraform
+    runs-on: ubuntu-latest
+    env:
+      DISCORD_NOTIFY_HOOK_URL: ${{ secrets.DISCORD_NOTIFY_HOOK_URL }}
+    steps:
+      - name: Has webhook url
+        run: echo "has_webhook_url=${DISCORD_NOTIFY_HOOK_URL:+true}" >> $GITHUB_ENV
+
+      - name: Prepare payload
+        if: env.has_webhook_url == 'true'
+        run: >-
+          (jq -r '.' <<< '
+          {
+            "username": "Organizations Infrastructure Bot",
+            "content": "The CodingOnes Github Templates organization has finished being updated :)",
+            "embeds": [{
+              "title": "CodingOnes Github Templates",
+              "url": "https://github.com/orgs/codingones-github-templates/repositories?q=&type=all&language=&sort=name"
+            }]
+          }'
+          ) > payload
+
+      - name: Send notification
+        if: env.has_webhook_url == 'true'
+        run: >-
+          curl
+          --header "Content-Type:application/json"
+          --request POST
+          --data @payload
+          ${{ secrets.DISCORD_NOTIFY_HOOK_URL }}
