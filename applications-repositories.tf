@@ -18,7 +18,7 @@ module "aws_application_api" {
       path            = ".github/workflows/sync-with-upstream.yml"
       url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
       template_variables = {
-        UPSTREAM = "codingones-github-templates/aws-application-api-fastify"
+        UPSTREAM = "codingones-github-templates/UPSTREAM"
       }
     }
   }
@@ -50,7 +50,7 @@ module "aws_application_client" {
       path            = ".github/workflows/sync-with-upstream.yml"
       url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
       template_variables = {
-        UPSTREAM = "codingones-github-templates/aws-application-client-angular"
+        UPSTREAM = "codingones-github-templates/UPSTREAM"
       }
     }
     workflow-validate = {
@@ -75,6 +75,23 @@ module "angular_client" {
   github_repository_topics      = ["client", "angular", "template", "cognito"]
   allow_push_to_default_branch  = false
   github_repository_description = "A ready to deploy application for quick prototyping"
+  #required_context_checks       = ["validate/prettier"]
+
+  providers = {
+    github = github
+  }
+
+  depends_on = [module.github_organization]
+}
+
+module "fastify_api" {
+  source = "github.com/codingones-terraform-modules/github-repository"
+
+  github_organization           = "codingones-github-templates"
+  github_repository             = "fastify-api"
+  github_repository_topics      = ["api", "node", "template", "typescript", "fastify"]
+  allow_push_to_default_branch  = false
+  github_repository_description = "A ready to deploy api for quick prototyping"
   #required_context_checks       = ["validate/prettier"]
 
   providers = {
