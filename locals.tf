@@ -19,11 +19,21 @@ locals {
         value       = "codingones-github-templates"
         description = "The organization name on terraform cloud"
       }
+      "github_pat" = {
+        hcl         = false
+        sensitive   = true
+        value       = var.github_pat
+        description = "A github PAT that allow administration operation on repositories"
+      }
     }
     github_organization_secrets = {
       "tfe_team_token" = {
         github_key    = "TF_API_TOKEN"
         terraform_key = "tfe_team_token"
+      }
+      "github_pat" = {
+        github_key    = "PAT"
+        terraform_key = "github_pat"
       }
     }
     github_organization_variables = {

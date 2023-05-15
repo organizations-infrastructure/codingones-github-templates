@@ -11,3 +11,10 @@ variable "tfe_token" {
   default     = false
   sensitive   = true
 }
+
+variable "github_pat" {
+  description = "A GitHub Personal Access Token from the admin"
+  nullable    = false
+  default     = false
+  sensitive   = true
+}
