@@ -21,7 +21,7 @@ locals {
       }
       "github_pat" = {
         hcl         = false
-        sensitive   = true
+        sensitive   = false
         value       = var.github_pat
         description = "A github PAT that allow administration operation on repositories"
       }
@@ -37,7 +37,6 @@ locals {
       }
     }
     github_organization_variables = {
-
     }
   }
 }
