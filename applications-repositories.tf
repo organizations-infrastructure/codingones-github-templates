@@ -21,6 +21,13 @@ module "aws_application_api" {
         UPSTREAM = "codingones-github-templates/UPSTREAM"
       }
     }
+    releaserc = {
+      path            = ".releaserc"
+      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/releaserc/releaserc-ecr"
+      template_variables = {
+        SERVICE = "api"
+      }
+    }
   }
 
   providers = {
@@ -40,7 +47,7 @@ module "aws_application_client" {
 
   files = {
     workflow-deploy = {
-      path            = ".github/workflows/deploy-to-s3.yml"
+      path            = ".github/workflows/deploy-on-s3.yml"
       url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/deploy-to-s3.yml"
       template_variables = {
         SERVICE = "s3"
