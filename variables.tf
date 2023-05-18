@@ -18,3 +18,24 @@ variable "github_pat" {
   default     = false
   sensitive   = true
 }
+
+variable "notification_webhook_failures" {
+  description = "A webhook to notify about failed ci"
+  nullable    = false
+  default     = false
+  sensitive   = true
+}
+
+variable "notification_webhook_successes" {
+  description = "A webhook to notify about successful ci"
+  nullable    = false
+  default     = false
+  sensitive   = true
+}
+
+variable "notification_webhook_releases" {
+  description = "A webhook to notify about repository release"
+  nullable    = false
+  default     = false
+  sensitive   = true
+}
