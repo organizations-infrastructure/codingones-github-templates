@@ -7,13 +7,13 @@ module "aws_application_api" {
   github_repository_topics = ["api", "node", "aws", "ecr", "docker", "template"]
 
   files = {
-    workflow-apply = {
-      path            = ".github/workflows/release-to-ecr.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/build-and-release-to-ecr.docker.yml"
-      template_variables = {
-        SERVICE = "ecr"
-      }
-    }
+    #workflow-apply = {
+    #  path            = ".github/workflows/release.yml"
+    #  url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/release-to-ecr.docker.yml"
+    #  template_variables = {
+    #    SERVICE = "ecr"
+    #  }
+    #}
     workflow-sync = {
       path            = ".github/workflows/sync-with-upstream.yml"
       url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
@@ -47,8 +47,8 @@ module "aws_application_client" {
 
   files = {
     workflow-deploy = {
-      path            = ".github/workflows/deploy-on-s3.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/deploy-to-s3.yml"
+      path            = ".github/workflows/release.yml"
+      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/deploy-on-s3.yml"
       template_variables = {
         SERVICE = "s3"
       }
