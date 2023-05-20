@@ -1,34 +1,12 @@
 module "aws_application_api" {
-  source = "github.com/codingones-terraform-modules/aws-ecr-node-api-template-repository-generator"
+  source = "github.com/codingones-terraform-modules/github-repository"
 
-  service                  = "ecr"
-  github_organization      = "codingones-github-templates"
-  github_repository        = "aws-application-api"
-  github_repository_topics = ["api", "node", "aws", "ecr", "docker", "template"]
-
-  files = {
-    #workflow-apply = {
-    #  path            = ".github/workflows/release.yml"
-    #  url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/release-to-ecr.docker.yml"
-    #  template_variables = {
-    #    SERVICE = "ecr"
-    #  }
-    #}
-    workflow-sync = {
-      path            = ".github/workflows/sync-with-upstream.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
-      template_variables = {
-        UPSTREAM = "codingones-github-templates/UPSTREAM"
-      }
-    }
-    releaserc = {
-      path            = ".releaserc"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/releaserc/releaserc-ecr"
-      template_variables = {
-        SERVICE = "api"
-      }
-    }
-  }
+  github_organization           = "codingones-github-templates"
+  github_repository             = "aws-application-api"
+  github_repository_topics      = ["api", "node", "aws", "ecr", "docker"]
+  allow_push_to_default_branch  = false
+  github_repository_description = "The necessary resources to deploy a client to ecr"
+  #required_context_checks       = ["validate/prettier"]
 
   providers = {
     github = github
@@ -38,34 +16,14 @@ module "aws_application_api" {
 }
 
 module "aws_application_client" {
-  source = "github.com/codingones-terraform-modules/aws-client-template-repository-generator"
+  source = "github.com/codingones-terraform-modules/github-repository"
 
-  service                  = "s3"
-  github_organization      = "codingones-github-templates"
-  github_repository        = "aws-application-client"
-  github_repository_topics = ["client", "aws", "s3", "template"]
-
-  files = {
-    workflow-deploy = {
-      path            = ".github/workflows/release.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/deploy-on-s3.yml"
-      template_variables = {
-        SERVICE = "s3"
-      }
-    }
-    workflow-sync = {
-      path            = ".github/workflows/sync-with-upstream.yml"
-      url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
-      template_variables = {
-        UPSTREAM = "codingones-github-templates/UPSTREAM"
-      }
-    }
-    workflow-validate = {
-      path               = ".github/workflows/validate.yml"
-      url_of_template    = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/validate.yml"
-      template_variables = {}
-    }
-  }
+  github_organization           = "codingones-github-templates"
+  github_repository             = "aws-application-client"
+  github_repository_topics      = ["client", "aws", "s3", "cloudfront"]
+  allow_push_to_default_branch  = false
+  github_repository_description = "The necessary resources to deploy a client to s3/cloudfront"
+  #required_context_checks       = ["validate/prettier"]
 
   providers = {
     github = github
