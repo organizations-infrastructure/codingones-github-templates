@@ -3,10 +3,11 @@ module "aws_service_repository" {
 
   source = "github.com/codingones-terraform-modules/aws-service-infrastructure-template-repository-generator"
 
-  service             = each.value.service
-  github_organization = each.value.github_organization
-  github_repository   = each.value.github_repository
-  files               = each.value.files
+  service                      = each.value.service
+  github_organization          = each.value.github_organization
+  github_repository            = each.value.github_repository
+  files                        = each.value.files
+  allow_force_pushes_to_default_branch = true
 
   providers = {
     github = github

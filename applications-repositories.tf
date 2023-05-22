@@ -31,7 +31,7 @@ module "aws_application_repository" {
   github_organization           = "codingones-github-templates"
   github_repository             = each.value.github_repository
   github_repository_topics      = each.value.github_repository_topics
-  allow_push_to_default_branch  = false
+  allow_force_pushes_to_default_branch  = false
   github_repository_description = each.value.github_repository_description
 
   providers = {
