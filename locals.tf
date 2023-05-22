@@ -21,25 +21,25 @@ locals {
       }
       "github_pat" = {
         hcl         = false
-        sensitive   = true
+        sensitive   = false
         value       = var.github_pat
         description = "A github PAT that allow administration operation on repositories"
       }
       "notification_webhook_failures" = {
         hcl         = false
-        sensitive   = true
+        sensitive   = false
         value       = var.notification_webhook_failures
         description = "A webhook url to notify about deployments"
       }
       "notification_webhook_successes" = {
         hcl         = false
-        sensitive   = true
+        sensitive   = false
         value       = var.notification_webhook_successes
         description = "A webhook url to notify about deployments"
       }
       "notification_webhook_releases" = {
         hcl         = false
-        sensitive   = true
+        sensitive   = false
         value       = var.notification_webhook_releases
         description = "A webhook url to notify about deployments"
       }
