@@ -28,11 +28,11 @@ module "aws_application_repository" {
 
   source = "github.com/codingones-terraform-modules/github-repository"
 
-  github_organization           = "codingones-github-templates"
-  github_repository             = each.value.github_repository
-  github_repository_topics      = each.value.github_repository_topics
-  allow_force_pushes_to_default_branch  = false
-  github_repository_description = each.value.github_repository_description
+  github_organization                  = "codingones-github-templates"
+  github_repository                    = each.value.github_repository
+  github_repository_topics             = each.value.github_repository_topics
+  allow_force_pushes_to_default_branch = false
+  github_repository_description        = each.value.github_repository_description
 
   providers = {
     github = github

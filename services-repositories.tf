@@ -3,10 +3,10 @@ module "aws_service_repository" {
 
   source = "github.com/codingones-terraform-modules/aws-service-infrastructure-template-repository-generator"
 
-  service                      = each.value.service
-  github_organization          = each.value.github_organization
-  github_repository            = each.value.github_repository
-  files                        = each.value.files
+  service                              = each.value.service
+  github_organization                  = each.value.github_organization
+  github_repository                    = each.value.github_repository
+  files                                = each.value.files
   allow_force_pushes_to_default_branch = true
 
   providers = {
@@ -27,14 +27,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "vpc-infrastructure"
+            __SERVICE = "vpc-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-vpc"
+            __UPSTREAM = "codingones-github-templates/aws-service-vpc"
           }
         },
         outputs = {
@@ -58,14 +58,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "domain-infrastructure"
+            __SERVICE = "domain-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-domain"
+            __UPSTREAM = "codingones-github-templates/aws-service-domain"
           }
         },
         acm = {
@@ -94,14 +94,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "email-infrastructure"
+            __SERVICE = "email-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-email"
+            __UPSTREAM = "codingones-github-templates/aws-service-email"
           }
         },
         iam = {
@@ -145,14 +145,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "identity-infrastructure"
+            __SERVICE = "identity-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-identity"
+            __UPSTREAM = "codingones-github-templates/aws-service-identity"
           }
         },
         cognito = {
@@ -186,14 +186,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "persistence-infrastructure"
+            __SERVICE = "persistence-infrastructure"
           }
         }
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-persistence"
+            __UPSTREAM = "codingones-github-templates/aws-service-persistence"
           }
         }
         outputs = {
@@ -222,14 +222,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/service/registry/apply-terraform-aws-registry-infrastructure.yml"
           template_variables = {
-            SERVICE = "registry-infrastructure"
+            __SERVICE = "registry-infrastructure"
           }
         }
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-registry"
+            __UPSTREAM = "codingones-github-templates/aws-service-registry"
           }
         }
         ecr = {
@@ -253,14 +253,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "api-infrastructure"
+            __SERVICE = "api-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-api"
+            __UPSTREAM = "codingones-github-templates/aws-service-api"
           }
         },
         alb = {
@@ -304,14 +304,14 @@ locals {
           path            = ".github/workflows/apply.terraform.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
           template_variables = {
-            SERVICE = "client-infrastructure"
+            __SERVICE = "client-infrastructure"
           }
         },
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"
           template_variables = {
-            UPSTREAM = "codingones-github-templates/aws-service-client"
+            __UPSTREAM = "codingones-github-templates/aws-service-client"
           }
         },
         cloudfront = {
