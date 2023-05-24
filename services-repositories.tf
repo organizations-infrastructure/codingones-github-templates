@@ -251,11 +251,11 @@ locals {
       files = {
         workflow-apply = {
           path            = ".github/workflows/apply.terraform.yml"
-          url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/apply-terraform-aws-service-infrastructure.yml"
+          url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/service/api/apply-terraform-aws-api-infrastructure.yml"
           template_variables = {
             __SERVICE = "api-infrastructure"
           }
-        },
+        }
         workflow-sync = {
           path            = ".github/workflows/sync-with-upstream.yml"
           url_of_template = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/sync-with-upstream.yml"

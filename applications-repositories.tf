@@ -1,24 +1,28 @@
 locals {
   applications_repositories = {
     aws_application_api = {
-      github_repository             = "aws-application-api"
-      github_repository_topics      = ["api", "node", "aws", "ecr", "docker"]
-      github_repository_description = "The necessary resources to deploy a client to ecr"
+      github_repository                    = "aws-application-api"
+      github_repository_topics             = ["api", "node", "aws", "ecr", "docker"]
+      github_repository_description        = "The necessary resources to deploy a client to ecr"
+      allow_force_pushes_to_default_branch = false
     },
     aws_application_client = {
-      github_repository             = "aws-application-client"
-      github_repository_topics      = ["client", "aws", "s3", "cloudfront"]
-      github_repository_description = "The necessary resources to deploy a client to s3/cloudfront"
+      github_repository                    = "aws-application-client"
+      github_repository_topics             = ["client", "aws", "s3", "cloudfront"]
+      github_repository_description        = "The necessary resources to deploy a client to s3/cloudfront"
+      allow_force_pushes_to_default_branch = true
     },
     angular_client = {
-      github_repository             = "angular-client"
-      github_repository_topics      = ["client", "angular", "template", "cognito"]
-      github_repository_description = "A ready to deploy application for quick prototyping"
+      github_repository                    = "angular-client"
+      github_repository_topics             = ["client", "angular", "template", "cognito"]
+      github_repository_description        = "A ready to deploy application for quick prototyping"
+      allow_force_pushes_to_default_branch = false
     },
     fastify_api = {
-      github_repository             = "fastify-api"
-      github_repository_topics      = ["api", "node", "template", "typescript", "fastify"]
-      github_repository_description = "A ready to deploy api for quick prototyping"
+      github_repository                    = "fastify-api"
+      github_repository_topics             = ["api", "node", "template", "typescript", "fastify"]
+      github_repository_description        = "A ready to deploy api for quick prototyping"
+      allow_force_pushes_to_default_branch = false
     }
   }
 }
@@ -31,7 +35,7 @@ module "aws_application_repository" {
   github_organization                  = "codingones-github-templates"
   github_repository                    = each.value.github_repository
   github_repository_topics             = each.value.github_repository_topics
-  allow_force_pushes_to_default_branch = false
+  allow_force_pushes_to_default_branch = each.value.allow_force_pushes_to_default_branch
   github_repository_description        = each.value.github_repository_description
 
   providers = {
