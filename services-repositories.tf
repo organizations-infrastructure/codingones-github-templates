@@ -70,7 +70,7 @@ locals {
         },
         acm = {
           path               = "acm.tf"
-          url_of_template    = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/service/domain/route53.tf"
+          url_of_template    = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/service/domain/acm.tf"
           template_variables = {}
         },
         outputs = {
